@@ -1,0 +1,360 @@
+body{margin:0;font-family:Poppins;background:#000;color:#fff}
+.top-bar{text-align:center;background:gold;color:#000;padding:8px}
+.header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:#111;position:sticky;top:0}
+.logo{font-family:'Playfair Display';color:gold;font-size:22px}
+nav a{margin:0 10px;color:white;cursor:pointer}
+nav a:hover{color:gold}
+
+.products{padding:50px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+
+.product-card{background:#111;border-radius:10px;overflow:hidden;transition:.3s}
+.product-card:hover{transform:translateY(-8px)}
+.product-card img{width:100%;height:300px;object-fit:cover}
+.product-info{padding:15px}
+.product-info button{width:100%;padding:8px;background:gold;border:none;margin-top:8px;cursor:pointer}
+
+.cart-sidebar,.wishlist-sidebar{
+position:fixed;top:0;width:300px;height:100%;
+background:#111;padding:20px;overflow:auto;transition:.4s
+}
+.cart-sidebar{right:-350px}
+.cart-sidebar.active{right:0}
+.wishlist-sidebar{left:-350px}
+.wishlist-sidebar.active{left:0}
+
+.cart-icon{position:relative;cursor:pointer}
+#cartCount{position:absolute;top:-8px;right:-8px;background:red;padding:3px 6px;border-radius:50%;font-size:12px}
+
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;color:white;font-size:22px}
+/* ================= VIDEO HERO FINAL ================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Video background */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Dark overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: -1;
+}
+
+/* Overlay content */
+.hero-overlay {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+/* Gold shimmer heading */
+.gold-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+    from { background-position: -200%; }
+    to { background-position: 200%; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh;
+    }
+    .gold-text {
+        font-size: 32px;
+    }
+}
+/* ===== Wishlist Heart on Product ===== */
+.product-card{
+position:relative;
+}
+
+.wishlist-heart{
+position:absolute;
+top:10px;
+left:10px;
+background:white;
+width:35px;
+height:35px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+transition:.3s;
+z-index:2;
+}
+
+.wishlist-heart i{
+color:black;
+}
+
+.wishlist-heart.active i{
+color:red;
+}
+
+/* Navbar wishlist icon */
+.wishlist-icon{
+position:relative;
+cursor:pointer;
+margin-right:15px;
+}
+
+#wishlistCount{
+position:absolute;
+top:-8px;
+right:-8px;
+background:red;
+color:white;
+font-size:12px;
+padding:3px 6px;
+border-radius:50%;
+}
+.close-wishlist{
+background:none;
+border:none;
+color:white;
+font-size:20px;
+cursor:pointer;
+position:absolute;
+top:10px;
+right:15px;
+}
+
+.wishlist-sidebar{
+left:-350px;
+position:fixed;
+top:0;
+width:300px;
+height:100%;
+background:#111;
+padding:20px;
+overflow:auto;
+transition:.4s;
+z-index:1000;
+}
+
+.wishlist-sidebar.active{
+left:0;
+}
+/* ===== PREMIUM MOBILE UPGRADE ===== */
+html{
+scroll-behavior:smooth;
+-webkit-tap-highlight-color:transparent;
+}
+
+.product-card{
+position:relative;
+background:#111;
+border-radius:18px;
+overflow:hidden;
+transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.product-card:active{
+transform:scale(0.97);
+}
+
+.product-card img{
+width:100%;
+height:300px;
+object-fit:cover;
+transition:transform .6s ease;
+}
+
+.product-card:hover img{
+transform:scale(1.1);
+}
+
+.product-card img.zoomed{
+transform:scale(1.4);
+z-index:10;
+}
+
+.wishlist-heart{
+position:absolute;
+top:10px;
+left:10px;
+background:white;
+width:35px;
+height:35px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+z-index:999;
+}
+
+.wishlist-heart i{
+color:black;
+}
+
+.wishlist-heart.active i{
+color:red;
+}
+
+@keyframes heartPop{
+0%{transform:scale(1);}
+50%{transform:scale(1.5);}
+100%{transform:scale(1);}
+}
+
+.wishlist-heart.active{
+animation:heartPop .4s ease;
+}
+
+.product-info button{
+width:100%;
+padding:10px;
+background:linear-gradient(45deg,gold,#d4af37);
+border:none;
+margin-top:10px;
+cursor:pointer;
+border-radius:25px;
+font-weight:600;
+transition:all .3s ease;
+}
+
+.product-info button:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(212,175,55,0.5);
+}
+
+.product-info button:active{
+transform:scale(0.95);
+}
+
+.cart-sidebar,
+.wishlist-sidebar{
+position:fixed;
+top:0;
+width:300px;
+height:100%;
+background:#111;
+padding:20px;
+overflow:auto;
+transition:transform .4s ease;
+z-index:1500;
+}
+
+.cart-sidebar{
+right:0;
+transform:translateX(100%);
+}
+
+.cart-sidebar.active{
+transform:translateX(0);
+}
+
+.wishlist-sidebar{
+left:0;
+transform:translateX(-100%);
+}
+
+.wishlist-sidebar.active{
+transform:translateX(0);
+}
+
+.close-wishlist{
+background:none;
+border:none;
+color:white;
+font-size:20px;
+cursor:pointer;
+position:absolute;
+top:10px;
+right:15px;
+}
+
+.wishlist-icon{
+position:relative;
+cursor:pointer;
+margin-right:15px;
+}
+
+#wishlistCount{
+position:absolute;
+top:-8px;
+right:-8px;
+background:red;
+color:white;
+font-size:12px;
+padding:3px 6px;
+border-radius:50%;
+}
+
+.mobile-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+display:none;
+justify-content:space-around;
+padding:12px 0;
+border-top:1px solid #222;
+z-index:2000;
+}
+
+.mobile-nav div{
+text-align:center;
+color:white;
+font-size:12px;
+cursor:pointer;
+}
+
+.mobile-nav i{
+display:block;
+font-size:18px;
+margin-bottom:3px;
+}
+
+@media(max-width:768px){
+.mobile-nav{
+display:flex;
+}
+body{
+padding-bottom:70px;
+}
+.product-grid{
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+.product-card img{
+height:220px;
+}
+}
