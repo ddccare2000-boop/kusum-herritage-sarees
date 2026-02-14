@@ -58,11 +58,46 @@
 
 
 
-
 <section id="products" class="products">
 <h2>Our Collection</h2>
-<div class="product-grid" id="productGrid"></div>
+
+<div class="product-grid">
+
+<div class="product-card">
+
+<div class="slider">
+
+<img src="images/lehnga1.jpg" class="active">
+<img src="images/lehnga2.jpg">
+<img src="images/lehnga3.jpg">
+<img src="images/lehnga4.jpg">
+<img src="images/lehnga5.jpg">
+<img src="images/lehnga6.jpg">
+<img src="images/lehnga7.jpg">
+
+<button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+<button class="next" onclick="changeSlide(1)">&#10095;</button>
+
+</div>
+
+<div class="product-info">
+<h4>Pure Banarasi Zari Dola Lehenga</h4>
+<p style="color:gold;font-weight:600;">₹1500</p>
+
+<p style="font-size:13px;color:#ccc;">
+Heavy Meena Banarasi Blouse | Waist 44 | Length 42 |
+Dupatta 2.5m | Cotton Inner Lining |
+5 Inch Bukram | Weight 1kg
+</p>
+
+<button onclick="addToCart(1)">Add to Cart</button>
+</div>
+
+</div>
+
+</div>
 </section>
+
 
 <div class="cart-sidebar" id="cartSidebar">
 <button class="close-cart" onclick="toggleCart()">✖</button>
