@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kusum Herritage Sarees</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="top-bar">
+✨ Kusum Herritage Sarees | Premium Collection ✨
+</div>
+
+<header class="header">
+<div class="logo">Kusum Herritage Sarees</div>
+
+<nav>
+<a onclick="filterProducts('All')">All</a>
+<a onclick="filterProducts('Banarasi')">Banarasi</a>
+<a onclick="filterProducts('Silk')">Silk</a>
+<a onclick="filterProducts('Georgette')">Georgette</a>
+<a onclick="filterProducts('Bridal')">Bridal</a>
+</nav>
+
+<div class="icons">
+<div class="wishlist-icon" onclick="toggleWishlist()">
+<i class="fas fa-heart"></i>
+<span id="wishlistCount">0</span>
+</div>
+
+
+<div class="cart-icon" onclick="toggleCart()">
+<i class="fas fa-shopping-bag"></i>
+<span id="cartCount">0</span>
+</div>
+</div>
+</header>
+
+<section class="hero">
+
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="video/hero-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay">
+    <h1 class="gold-text">Kusum Herritage Sarees</h1>
+    <p>Where Tradition Meets Royal Elegance</p>
+    <a href="#products" class="hero-btn">Shop Now</a>
+  </div>
+
+</section>
+
+
+
+
+<section id="products" class="products">
+<h2>Our Collection</h2>
+<div class="product-grid" id="productGrid"></div>
+</section>
+
+<div class="cart-sidebar" id="cartSidebar">
+<button class="close-cart" onclick="toggleCart()">✖</button>
+
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<h4 id="cartTotal"></h4>
+<button onclick="checkoutWhatsApp()">Order on WhatsApp</button>
+</div>
+
+
+<div class="wishlist-sidebar" id="wishlistSidebar">
+<button class="close-wishlist" onclick="toggleWishlist()">✖</button>
+<h3>Your Wishlist</h3>
+<div id="wishlistItems"></div>
+</div>
+
+
+<a href="https://wa.me/919784620776" class="whatsapp-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+<div class="mobile-nav">
+    <div onclick="scrollToProducts()">
+        <i class="fas fa-store"></i>
+        <span>Shop</span>
+    </div>
+
+    <div onclick="toggleWishlist()">
+        <i class="fas fa-heart"></i>
+        <span>Wishlist</span>
+    </div>
+
+    <div onclick="toggleCart()">
+        <i class="fas fa-shopping-bag"></i>
+        <span>Cart</span>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
+<script>
+async function sendMessage() {
+  const input = document.getElementById("userInput").value;
+  const messages = document.getElementById("messages");
+
+  messages.innerHTML += `<p><b>You:</b> ${input}</p>`;
+
+  const res = await fetch("https://abcd1234.ngrok-free.app/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer KUSUM_SECURE_2026"
+    },
+    body: JSON.stringify({ message: input })
+  });
+
+  const data = await res.json();
+  messages.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+}
+</script>
+<style>
+#aiChat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background: #111;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+#messages {
+  height: 200px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#aiChat input {
+  width: 75%;
+}
+</style>
